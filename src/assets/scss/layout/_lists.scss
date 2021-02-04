@@ -1,0 +1,89 @@
+@import '../abstracts/variables';
+@import '../abstracts/colors';
+
+.card-icon {
+    display: block;
+    text-align: center;
+    margin: 2.4rem 0;
+
+    .icon {
+        font-size: 3rem;
+    }
+}
+
+.search {
+    border: 0;
+
+    &:focus {
+        box-shadow: none;
+    }
+
+    &::placeholder {
+        color: #6c757d;
+        font-size: 13px;
+        letter-spacing: .3px;
+    }
+}
+
+.search-icon {
+    border: 0;
+    background: transparent;
+    color: #666666;
+}
+
+.content-buttons {
+    margin-top: 45px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    transition: transform 0.55s ease, opacity 0.25s linear;
+}
+
+.button {
+    border-radius: 20px;
+    margin-right: 10px;
+}
+
+.content-title {
+    color: $black-color;
+    font-weight: 700;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.content-title-min {
+    color: $black-color;
+    font-weight: 700;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.table {
+    margin-top: 25px;
+
+    thead th {
+        background: $darker-color;
+        color: #fafafa;
+        border-bottom: 0;
+
+        &:first-child {
+            border-top-left-radius: 11px;
+            padding-left: 1.3rem !important;
+            padding-right: 0 !important;
+        }
+
+        &:last-child {
+            border-top-right-radius: 11px;
+        }
+    }
+
+    tbody {
+        th {
+            padding-left: 1.3rem!important;
+            padding-right: 0!important;
+        }
+    }
+
+    &>:not(caption)>*>* {
+        padding: 1rem .5rem;
+    }
+}
