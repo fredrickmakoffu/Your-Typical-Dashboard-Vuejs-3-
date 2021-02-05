@@ -24,82 +24,8 @@
                     <span class="list-name"> Subscribers </span>  
                 </span> 
             </a>
-        </li> 
-
-        <li class="list-group-item">
-            <a href="#" class="d-flex">
-                <span>
-                    <font-awesome-icon class="icon float-right" :icon="['fa', 'home']" /> 
-                    <span class="list-name"> Home </span>  
-                </span>
-            </a> 
         </li>
-
-        <li class="list-group-item">
-            <a href="#" class="d-flex">
-                <span>
-                    <font-awesome-icon class="icon" :icon="['fa', 'star']" /> 
-                    <span class="list-name"> Recent </span>  
-                </span>
-            </a> 
-        </li>
-
-        <li class="list-group-item active" v-on:click="expand($event.currentTarget)">
-            <a href="#" class="d-flex">
-                <span>
-                    <font-awesome-icon class="icon" :icon="['fa', 'file']" /> 
-                    <span class="list-name"> Draft </span>  
-                </span>
-
-                <font-awesome-icon class="icon me-0" :icon="['fa', 'caret-down']" /> 
-            </a> 
-
-            <ul class="list-nav-child list-group list-group-flush">
-                <li class="list-group-item">
-                    <a href="#" >
-                        <font-awesome-icon class="icon" :icon="['fa', 'angle-right']" />  &nbsp; Cras justo odio 
-                    </a>
-                </li>
-                <li class="list-group-item">
-                    <a href="#" >
-                        <font-awesome-icon class="icon" :icon="['fa', 'angle-right']" />  &nbsp; Dapibus ac facilisis in
-                    </a>
-                </li>
-                <li class="list-group-item">
-                    <a href="#" >
-                        <font-awesome-icon class="icon" :icon="['fa', 'angle-right']" />  &nbsp; Morbi leo risus
-                    </a>
-                </li>
-                <li class="list-group-item">
-                    <a href="#" >
-                        <font-awesome-icon class="icon" :icon="['fa', 'angle-right']" />  &nbsp; Porta ac consectetur ac
-                    </a>
-                </li>
-                <li class="list-group-item">
-                    <a href="#" >
-                        <font-awesome-icon class="icon" :icon="['fa', 'angle-right']" />  &nbsp; Vestibulum at eros
-                    </a>
-                </li>
-            </ul>
-        </li>
-
-        <li class="list-group-item">
-            <a href="#" class="d-flex">
-                <span>
-                    <font-awesome-icon class="icon" :icon="['fa', 'users']" /> 
-                    <span class="list-name"> My Team </span>  
-                </span>
-            </a> 
-        </li>
-
-        <li class="list-group-item">
-            <a href="#" class="d-flex">
-                <span>
-                    <font-awesome-icon class="icon" :icon="['fa', 'user']" /> 
-                    <span class="list-name"> My Account </span>  
-                </span>
-            </a> 
-        </li>       
+    
       </div>
     </div>
 </template>

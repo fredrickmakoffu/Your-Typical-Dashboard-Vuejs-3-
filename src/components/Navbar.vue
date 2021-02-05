@@ -7,7 +7,7 @@
         </span>
       </div>
 
-      <span class="navbar-left">
+      <!-- <span class="navbar-left">
         <div class="navbar-brand">
           <span style="display: -webkit-inline-box;">
             <font-awesome-icon class="nav-icon" :icon="['fab', 'telegram-plane']" style="margin-right: 0" />
@@ -47,7 +47,7 @@
             </a>
           </div>
         </div>
-      </span>
+      </span> -->
 
       <div class="divider mt-4"></div>
     </div>
@@ -65,10 +65,6 @@ export default {
       toggled() { 
         document.querySelector('#sidebar-wrapper').classList.add('toggled');
         document.querySelector('.backdrop').classList.add('on');
-      },
-
-      backdrop() { 
-        alert('here')
       }
     }
 }

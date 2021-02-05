@@ -1,10 +1,10 @@
 <template>
     <span class="d-flex">
         <h5 class="content-title" style="margin-top: 45px; margin-bottom: 20px;">Subscribers</h5>
-        <div class="content-buttons">
+        <!-- <div class="content-buttons">
             <button class="btn button primary btn-sm"> &nbsp;&nbsp;Export &nbsp;<font-awesome-icon :icon="['fa', 'angle-down']" />&nbsp; </button>
             <button class="btn button info btn-sm" data-bs-toggle="modal" data-bs-target="#forms"> &nbsp;&nbsp;View &nbsp;<font-awesome-icon :icon="['fa', 'plus']" />&nbsp; </button>
-        </div>
+        </div> -->
     </span>
 
     <div class="row">
@@ -27,7 +27,7 @@
     
     <div class="row">
         <div class="col-md-12">
-            <small class="text-muted me-3 fw-bold">{{ all_subscribers.length }} total subscribers</small>
+            <small class="text-muted me-3 fw-bold">+{{ max }} total subscribers</small>
             <small class="text-muted float-end me-3 fw-bold">{{ totals }} subscribers found</small>
             <table id="table" class="table table-striped mt-2">
                 <thead class="table-dark">
@@ -74,7 +74,7 @@
                         </td>
 
                         <td>
-                            <button class="btn btn-sm info" data-bs-toggle="modal" data-bs-target="#qr">
+                            <button class="btn btn-sm info" data-bs-toggle="modal" data-bs-target="#qr" @click="printQR(mobileNumber, postalCode)">
                                <font-awesome-icon :icon="['fa', 'qrcode']" /> QR
                             </button>
                         </td>
@@ -117,13 +117,22 @@
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
             <div class="modal-content">
                 <div class="modal-body">
-                    <img src="https://www.kaspersky.com/content/en-global/images/repository/isc/2020/9910/a-guide-to-qr-codes-and-how-to-scan-qr-codes-2.png" alt="qr" style="width:400px; height: 400px">
+                    <div class="d-flex">
+                        <canvas class="mx-auto" id="canvas"></canvas>
+                    </div>
 
-                    <button type="button" class="btn button btn-sm primary" data-bs-dismiss="modal">
+                    <div class="d-flex">
+                        <p class="mx-auto">Print or scan the QR Code to get your details</p>
+                    </div>
+                </div>
+
+                <div class="modal-footer d-flex border-0">
+                    <button type="button" class="btn button btn-sm primary mx-auto mt-2" data-bs-dismiss="modal">
                         &nbsp;&nbsp;Print &nbsp; <font-awesome-icon :icon="['fa', 'print']" />&nbsp;
                     </button>
                 </div>
             </div>  
+            
         </div>
     </div>
 
@@ -147,7 +156,7 @@
 
 <script>
 import FormComponent from './Form'
-import subscribers from '../assets/json/subscribers.json'
+
 
 export default {
     name: 'Lists',
@@ -155,62 +164,41 @@ export default {
         FormComponent
     },
     mounted() {
-        this.getSubscribersbyPage(1, 25)
+        this.getSubscribersbyPage(1, 25, '')
     },
     data (){
         return {
             error: [],
             page: 1,
             limit: 25,
-            all_subscribers: subscribers,
             totals: '',
             subscribers: [],
             current_limit: 25,
             hidePrevious: true,
             hideNext: false,
-            max: subscribers.length,
+            max: 250000,
             search: '',
             awaitingSearch: false
             
         }
     },
     methods: {
-        // getSubscribersbyPage(page, limit, term) {
-        //     let url = '';
+        getSubscribersbyPage(page, limit, term) {
+            let url = '';
 
-        //     if(term) {
-        //         url = '/Subscribers/GetAllSubscribers?PhoneNumber=' + term + '&pageNumber=' + page + '&pageSize=' + limit;
-        //     } else {
-        //         url = '/Subscribers/GetAllSubscribers?pageNumber=' + page + '&pageSize=' + limit;
-        //     }
-
-        //     this.axios.get(url).then((response) => {
-        //         this.subscribers = response.data
-        //         console.log(response.data);
-        //     }).catch(error => {
-        //         this.error = error.response.data
-        //         console.log(this.error);
-        //     })
-        // },
-        getSubscribersbyPage(page, limit) {
-            var index = 0
-
-            if(page != 1) {
-                index = ((page-1) * limit);
+            if(term) {
+                url = '/Subscribers/GetAllSubscribers?PhoneNumber=' + term + '&pageNumber=' + page + '&pageSize=' + limit;
+            } else {
+                url = '/Subscribers/GetAllSubscribers?pageNumber=' + page + '&pageSize=' + limit;
             }
 
-            const i = [];
-            var counter = 0;
-            Object.assign(i, this.all_subscribers);
-            this.subscribers = {}
-            i.forEach(element => {
-                if (counter >= index && counter < (limit+index)) {                    
-                    this.subscribers[counter] = element
-                }
-                counter++
-            });
-
-            this.totals = index + ' to ' + ((index+limit)-1);
+            this.axios.get(url).then((response) => {
+                this.subscribers = response.data
+                this.totals = this.subscribers.length
+            }).catch(error => {
+                this.error = error.response.data
+                console.log(this.error);
+            })
         },
         next() {
             // increment page + limit
@@ -229,7 +217,7 @@ export default {
             }
 
             // get data to populate lists
-            this.getSubscribersbyPage(this.page, this.limit)
+            this.getSubscribersbyPage(this.page, this.limit, '')
 
             document.getElementById("table").scrollIntoView(true)
         },
@@ -253,7 +241,6 @@ export default {
             this.getSubscribersbyPage(this.page, this.limit)
             document.getElementById("table").scrollIntoView(true)
         },
-
         start() {
             this.page = 1
             this.current_limit = this.limit
@@ -261,7 +248,7 @@ export default {
             this.hideNext = false
             this.hidePrevious = true
 
-            this.getSubscribersbyPage(this.page, this.limit)
+            this.getSubscribersbyPage(this.page, this.limit, '')
         },
 
         end() {
@@ -271,34 +258,32 @@ export default {
             this.hideNext = true
             this.hidePrevious = false
 
-            this.getSubscribersbyPage(this.page, this.limit)
+            this.getSubscribersbyPage(this.page, this.limit,)
         },
         
         fetchResults(){
-            // this.getSubscribersbyPage(this.page, this.limit, this.search)
             if(this.search !== '') {
-                var counter = 0
-                var searches = 0
-                this.subscribers = {}
-                this.all_subscribers.forEach(element => {
-                    if(element.mobileNumber.includes(this.search)) {
-
-                        this.subscribers[counter] = element
-                        this.subscribers[counter].id = searches+3
-                        searches++
-                    }
-
-                    counter++
-                });
-
-                this.totals = searches
-
-                // hide navigation after search
-                document.querySelector('.navigation').style.display = 'none';
+                this.getSubscribersbyPage(this.page, this.limit, this.search)
             } else {
-                this.getSubscribersbyPage(1, 25)
-                document.querySelector('.navigation').style.display = 'block';
+                 this.getSubscribersbyPage(1, 25, '')
             }
+        },
+        printQR(PhoneNumber, postalCode) {
+            var QRCode = require('qrcode')
+            var canvas = document.getElementById('canvas')
+            var opts = {
+                errorCorrectionLevel: 'H',
+                type: 'image/jpeg',
+                quality: 0.3,
+                margin: 1,
+                scale: 4,
+                width: 400
+            }
+
+            QRCode.toCanvas(canvas, PhoneNumber + ':'+postalCode, opts, function (error) {
+            if (error) console.error(error)
+                console.log('success!');
+            })
         }
     }
 }

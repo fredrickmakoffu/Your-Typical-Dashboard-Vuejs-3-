@@ -3,7 +3,7 @@
         <div class="content-wrapper">
             <div class="content">
 
-                <stats></stats>
+                <!-- <stats></stats> -->
 
                 <lists></lists>
 
@@ -18,13 +18,13 @@
 
 <script>
 import Lists from './Lists'
-import Stats from './Stats'
+// import Stats from './Stats'
 
 export default {
     name: 'Content',
     components: {
         Lists,
-        Stats
+        // Stats
     },  
     data () {
         return {

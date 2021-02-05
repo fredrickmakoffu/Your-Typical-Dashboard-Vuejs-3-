@@ -16,6 +16,7 @@
     "axios": "^0.21.1",
     "bootstrap": "^5.0.0-beta1",
     "core-js": "^3.6.5",
+    "qrcode": "^1.4.4",
     "sass": "^1.32.6",
     "sass-loader": "^10.1.1",
     "vue": "^3.0.0",
