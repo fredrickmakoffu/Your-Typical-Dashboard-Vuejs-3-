@@ -5,15 +5,14 @@
 
             <div class="backdrop" v-on:click="close()"></div>
              
-            <navbar :background_color="'white'"></navbar>
+            <navbar :background_color="'primary'"></navbar>
+
+            <admin-header style="margin-bottom: 3rem"></admin-header>
 
             <div class="container">
               <div class="content-wrapper">
                 <div class="content mx-auto">
-                  
-                  <stats></stats>
-
-                  <lists :title="true"></lists>
+                  <lists :title="false"></lists>
                 </div>                                          
               </div>
              </div>
@@ -28,18 +27,17 @@
 import MainFooter from '../components/Footer'
 import Sidebar from '../components/Sidebar'
 import Navbar from '../components/Navbar'
+import AdminHeader from '../components/AdminHeader'
 import Lists from '../components/Lists'
-import Stats from '../components/Stats'
-
 
 export default {
-  name: 'Home',
+  name: 'Admin',
     components: {
+      AdminHeader,
       MainFooter,
       Sidebar,
       Navbar,
-      Lists,
-      Stats
-    }, 
+      Lists
+    }
 }
 </script>

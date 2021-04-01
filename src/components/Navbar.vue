@@ -1,34 +1,35 @@
 <template>
-  <nav class="navbar navbar-light bg-light">
+  <nav :class="'navbar bg-' + background_color">
     <div class="container">
       <div class="navbar-brand bars" @click="toggled()">
         <span style="display: -webkit-inline-box;">
-          <font-awesome-icon class="nav-icon" :icon="['fa', 'bars']" />
+          <font-awesome-icon class="nav-icon text-white" :icon="['fa', 'bars']" />
         </span>
       </div>
 
-      <!-- <span class="navbar-left">
+      <span class="navbar-left">
         <div class="navbar-brand">
           <span style="display: -webkit-inline-box;">
-            <font-awesome-icon class="nav-icon" :icon="['fab', 'telegram-plane']" style="margin-right: 0" />
+            <font-awesome-icon :class="'nav-icon text-' + color" :icon="['fab', 'telegram-plane']" style="margin-right: 0" />
           </span>
         </div>
 
         <div class="navbar-brand">
           <span style="display: -webkit-inline-box;">
-            <font-awesome-icon class="nav-icon" :icon="['fa', 'bell']" style="margin-right: 0" />
+            <font-awesome-icon :class="'nav-icon text-' + color" :icon="['fa', 'bell']" style="margin-right: 0" />
           </span>
         </div>
 
         <div class="navbar-brand dropdown">
           <span data-bs-toggle="dropdown" class="dropdown-toggle" style="display: -webkit-inline-box;">
-            <font-awesome-icon class="nav-icon" :icon="['fa', 'user']" style="margin-right: 0" />
+            <font-awesome-icon :class="'nav-icon text-' + color" :icon="['fa', 'user']" style="margin-right: 0" />
           </span>
 
           <div class="dropdown-menu">
             <span class="account">
               <p class="account-text" style="display: inline-block">Hey, Fredrick!</p>
             </span>
+            
             <a href="<?php echo base_url(); ?>account_details" class="dropdown-item">
               <font-awesome-icon class="icon" :icon="['fa', 'user']" /> 
               <p class="dropdown-list"> My Account </p>
@@ -47,7 +48,7 @@
             </a>
           </div>
         </div>
-      </span> -->
+      </span>
 
       <div class="divider mt-4"></div>
     </div>
@@ -61,10 +62,31 @@
 <script>
 export default {
     name: 'Navbar',
+    props: {
+      background_color: {
+        type: String,
+        required: true
+      }
+    },
+    data() {
+      return {
+        color: ''
+      }
+    },
+    mounted() {
+      this.setColor();
+    },
     methods: {
       toggled() { 
         document.querySelector('#sidebar-wrapper').classList.add('toggled');
         document.querySelector('.backdrop').classList.add('on');
+      },
+      setColor() {
+        if(this.background_color == "white") {
+          this.color = 'muted'
+        } else {
+          this.color = 'white'
+        }
       }
     }
 }

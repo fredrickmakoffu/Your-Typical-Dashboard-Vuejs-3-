@@ -1,17 +1,5 @@
 <template>
-    <div id="wrapper">
-        <sidebar></sidebar>
-        <div class="body">
-
-            <div class="backdrop" v-on:click="close()"></div>
-             
-            <navbar></navbar>
-            
-            <contents style="padding-top: 2rem"></contents>
-            
-            <main-footer></main-footer>
-        </div>
-    </div>
+    <router-view></router-view>
 </template>
 
 <style lang="scss">
@@ -20,12 +8,6 @@
 </style>
 
 <script>
-
-import Navbar from './components/Navbar'
-import Sidebar from './components/Sidebar'
-import Contents from './components/Content'
-import MainFooter from './components/Footer'
-
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faTelegramPlane, faGalacticRepublic } from '@fortawesome/free-brands-svg-icons'
 import { faBell, faQuestion, faCogs, faAngleRight, faQrcode, faStepBackward, faStepForward, faAngleLeft, faBars, faEllipsisH, faCaretDown, faCaretLeft, faCaretRight, faCheckCircle, faTimesCircle, faTimes, faStar, faEllipsisV, faSearch, faEnvelope, faDollarSign, faHeart, faCog, faHome, faPlus, faHouseUser, faPowerOff, faUsers, faSignOutAlt, faUser, faFile, faAngleDown, faPlusCircle, faPrint } from '@fortawesome/free-solid-svg-icons'
@@ -33,12 +15,6 @@ import { faBell, faQuestion, faCogs, faAngleRight, faQrcode, faStepBackward, faS
 library.add(faUser, faHeart, faQuestion, faTelegramPlane, faQrcode, faPrint, faStepBackward, faStepForward, faBars, faAngleLeft, faTimesCircle, faCaretDown, faCaretLeft, faCaretRight, faAngleRight, faCheckCircle, faTimes, faStar, faSearch, faEllipsisV, faGalacticRepublic, faDollarSign, faCog, faEnvelope, faPlus, faHome, faBell, faPowerOff, faUsers, faEllipsisH, faFile, faHouseUser, faCogs, faSignOutAlt, faAngleDown, faPlusCircle)
 
 export default {
-    components: {
-        Navbar,
-        Sidebar,
-        Contents,
-        MainFooter
-    },
     methods: {
         close() {
             document.querySelector('#sidebar-wrapper').classList.remove('toggled');

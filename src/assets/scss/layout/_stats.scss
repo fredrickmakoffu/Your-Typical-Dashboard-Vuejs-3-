@@ -1,6 +1,11 @@
 @import '../abstracts/variables';
 @import '../abstracts/colors';
 
+.all-stats {
+    padding-top: 3rem;
+    padding-bottom: 1rem;
+}
+
 .card-icon {
     display: block;
     text-align: center;

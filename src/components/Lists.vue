@@ -1,11 +1,5 @@
 <template>
-    <span class="d-flex">
-        <h5 class="content-title" style="margin-top: 45px; margin-bottom: 20px;">Subscribers</h5>
-        <!-- <div class="content-buttons">
-            <button class="btn button primary btn-sm"> &nbsp;&nbsp;Export &nbsp;<font-awesome-icon :icon="['fa', 'angle-down']" />&nbsp; </button>
-            <button class="btn button info btn-sm" data-bs-toggle="modal" data-bs-target="#forms"> &nbsp;&nbsp;View &nbsp;<font-awesome-icon :icon="['fa', 'plus']" />&nbsp; </button>
-        </div> -->
-    </span>
+    <section-title v-if="title"></section-title>
 
     <div class="row">
         <div class="col-md-12">
@@ -27,56 +21,30 @@
     
     <div class="row">
         <div class="col-md-12">
-            <small class="text-muted me-3 fw-bold">+{{ max }} total subscribers</small>
-            <small class="text-muted float-end me-3 fw-bold">{{ totals }} subscribers found</small>
+            <small class="text-muted me-3 fw-bold">+{{ totals }} total</small>
+            <small class="text-muted float-end me-3 fw-bold">{{ totals }} records found.</small>
             <table id="table" class="table table-striped mt-2">
                 <thead class="table-dark">
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Names </th>
-                        <th scope="col">Mobile No. </th>
-                        <th scope="col">ID No. </th>
-                        <th scope="col">Postal Code </th>
-                        <th scope="col">Paid </th>
-                        
-                        <th scope="col">Account Status </th>
-                        <th scope="col">Date Expired</th>
-                        <th scope="col">Pay</th>
-                        <th scope="col">QR</th>
+                        <th scope="col">username </th>
+                        <th scope="col">Email </th>
+                        <th scope="col">Phone </th>
+                        <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="({id, names, expiry, idNumber, mobileNumber, postalCode, isPaid, index}) in subscribers" :key="index">
-                        <th scope="row">{{ id-2 }}</th>
-                        <td>{{ names }}</td>
-                        <td>{{ mobileNumber }}</td>
-                        <td>{{ idNumber }}</td>
-                        <td>{{ postalCode }}</td>
-                        
+                    <tr v-for="({id, name, username, email, phone}) in data" :key="id">
+                        <th scope="row">{{ id }}</th>
+                        <td>{{ name }}</td>
+                        <td>{{ username }}</td>
+                        <td>{{ email }}</td>
+                        <td>{{ phone }}</td>
                         <td>
-                            <p v-if="isPaid == true" class="text-success fw-bold"><font-awesome-icon class="text-success" :icon="['fa', 'check-circle']" /> Paid </p>
-
-                            <p v-if="isPaid == false" class="text-danger fw-bold"><font-awesome-icon class="text-danger" :icon="['fa', 'times-circle']" /> Unpaid </p>
-                        </td>
-
-                        <td>
-                            <p v-if="isPaid == true" class="text-success fw-bold"><font-awesome-icon class="text-success" :icon="['fa', 'check-circle']" /> Enabled </p>
-
-                            <p v-if="isPaid == false" class="text-danger fw-bold"><font-awesome-icon class="text-danger" :icon="['fa', 'times-circle']" /> Disabled </p>
-                        </td>
-                        
-                        <td>{{ expiry.substring(0, 10) }}</td>
-
-                        <td>
-                            <button class="btn btn-sm success" data-bs-toggle="modal" data-bs-target="#pay">
-                               <font-awesome-icon :icon="['fa', 'dollar-sign']" /> Pay
-                            </button>
-                        </td>
-
-                        <td>
-                            <button class="btn btn-sm info" data-bs-toggle="modal" data-bs-target="#qr" @click="printQR(mobileNumber, postalCode)">
-                               <font-awesome-icon :icon="['fa', 'qrcode']" /> QR
-                            </button>
+                            <p class="text-success fw-bold">
+                                <font-awesome-icon class="text-muted" :icon="['fa', 'ellipsis-v']" /> 
+                            </p>
                         </td>
                     </tr>
                 </tbody>
@@ -113,41 +81,6 @@
 
     <form-component></form-component>
 
-    <div class="modal fade" id="qr" tabindex="-1" role="dialog" aria-labelledby="qrLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div class="d-flex">
-                        <canvas class="mx-auto" id="canvas"></canvas>
-                    </div>
-
-                    <div class="d-flex">
-                        <p class="mx-auto">Print or scan the QR Code to get your details</p>
-                    </div>
-                </div>
-
-                <div class="modal-footer d-flex border-0">
-                    <button type="button" class="btn button btn-sm primary mx-auto mt-2" data-bs-dismiss="modal">
-                        &nbsp;&nbsp;Print &nbsp; <font-awesome-icon :icon="['fa', 'print']" />&nbsp;
-                    </button>
-                </div>
-            </div>  
-            
-        </div>
-    </div>
-
-    <div class="modal fade" id="pay" tabindex="-1" role="dialog" aria-labelledby="payLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                       <h6><font-awesome-icon class="icon text-success" :icon="['fa', 'check-circle']" /> <span class="fw-bold text-success">Success!</span>   </h6>
-                       <div class="divider bg-success pt-1" style="border-radius: 20px;width: 20%;"></div>
-                       <p class="text-success mt-4" style="font-size: 18px; letter-spacing: .6px">Check your phone for a prompt to pay.</p> 
-                </div>
-            </div>
-        </div>
-    </div>
-
 </template>
 
 <style lang="scss" scoped>
@@ -155,46 +88,56 @@
 </style>
 
 <script>
-import FormComponent from './Form'
-
+import FormComponent from '../components/Form';
+import SectionTitle from'../components/SectionTitle';
 
 export default {
     name: 'Lists',
+    props: {
+        title: {
+            type: Boolean,
+            required: true
+        }
+    },
     components: {
-        FormComponent
+        FormComponent,
+        SectionTitle
     },
     mounted() {
-        this.getSubscribersbyPage(1, 25, '')
+        this.getDatabyPage(1, 25, '')
     },
+    
     data (){
         return {
             error: [],
             page: 1,
             limit: 25,
             totals: '',
-            subscribers: [],
+            data: [],
             current_limit: 25,
             hidePrevious: true,
             hideNext: false,
-            max: 250000,
+            max: 0,
             search: '',
             awaitingSearch: false
             
         }
     },
     methods: {
-        getSubscribersbyPage(page, limit, term) {
+        getDatabyPage(page, limit, term) {
             let url = '';
 
             if(term) {
-                url = '/Subscribers/GetAllSubscribers?PhoneNumber=' + term + '&pageNumber=' + page + '&pageSize=' + limit;
+                url = '/data/GetAlldata?PhoneNumber=' + term + '&pageNumber=' + page + '&pageSize=' + limit;
             } else {
-                url = '/Subscribers/GetAllSubscribers?pageNumber=' + page + '&pageSize=' + limit;
+                url = '/data/GetAlldata?pageNumber=' + page + '&pageSize=' + limit;
             }
 
+            url = '/users'
+
             this.axios.get(url).then((response) => {
-                this.subscribers = response.data
-                this.totals = this.subscribers.length
+                this.data = response.data
+                this.totals = this.data.length
             }).catch(error => {
                 this.error = error.response.data
                 console.log(this.error);
@@ -217,7 +160,7 @@ export default {
             }
 
             // get data to populate lists
-            this.getSubscribersbyPage(this.page, this.limit, '')
+            this.getDatabyPage(this.page, this.limit, '')
 
             document.getElementById("table").scrollIntoView(true)
         },
@@ -238,7 +181,7 @@ export default {
             }
 
             // get data to populate lists
-            this.getSubscribersbyPage(this.page, this.limit)
+            this.getDatabyPage(this.page, this.limit)
             document.getElementById("table").scrollIntoView(true)
         },
         start() {
@@ -248,7 +191,7 @@ export default {
             this.hideNext = false
             this.hidePrevious = true
 
-            this.getSubscribersbyPage(this.page, this.limit, '')
+            this.getDatabyPage(this.page, this.limit, '')
         },
 
         end() {
@@ -258,32 +201,15 @@ export default {
             this.hideNext = true
             this.hidePrevious = false
 
-            this.getSubscribersbyPage(this.page, this.limit,)
+            this.getDatabyPage(this.page, this.limit,)
         },
         
         fetchResults(){
             if(this.search !== '') {
-                this.getSubscribersbyPage(this.page, this.limit, this.search)
+                this.getDatabyPage(this.page, this.limit, this.search)
             } else {
-                 this.getSubscribersbyPage(1, 25, '')
+                 this.getDatabyPage(1, 25, '')
             }
-        },
-        printQR(PhoneNumber, postalCode) {
-            var QRCode = require('qrcode')
-            var canvas = document.getElementById('canvas')
-            var opts = {
-                errorCorrectionLevel: 'H',
-                type: 'image/jpeg',
-                quality: 0.3,
-                margin: 1,
-                scale: 4,
-                width: 400
-            }
-
-            QRCode.toCanvas(canvas, PhoneNumber + ':'+postalCode, opts, function (error) {
-            if (error) console.error(error)
-                console.log('success!');
-            })
         }
     }
 }

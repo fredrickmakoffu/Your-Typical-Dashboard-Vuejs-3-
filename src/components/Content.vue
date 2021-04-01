@@ -1,4 +1,5 @@
 <template>
+
     <div class="container">
         <div class="content-wrapper">
             <div class="content">
@@ -18,13 +19,13 @@
 
 <script>
 import Lists from './Lists'
-// import Stats from './Stats'
 
 export default {
     name: 'Content',
     components: {
         Lists,
-        // Stats
+        // Stats,
+        AdminHeader
     },  
     data () {
         return {

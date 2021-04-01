@@ -3,7 +3,11 @@
 @import '../helpers/breakpoints';
 
 body{
-    font-family: $nunito-slab!important;
+    font-family: $pt-slab!important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $ibm-slab!important;
 }
 
 #wrapper {
@@ -58,7 +62,7 @@ body{
                 max-width: calc(100% - 20px);
 
                 .content {
-                    max-width: calc(100% - 20px);
+                    max-width: calc(100% - 40px);
                 }
             }
         }
@@ -70,7 +74,7 @@ body{
                 max-width: calc(100% - 20px);
 
                 .content {
-                    max-width: calc(100% - 20px);
+                    max-width: calc(100% - 60px);
                 }
             }
         }
@@ -80,7 +84,7 @@ body{
                 max-width: calc(100% - 20px);
 
                 .content {
-                    max-width: calc(100% - 20px);
+                    max-width: calc(100% - 60px);
                 }
             }
         }

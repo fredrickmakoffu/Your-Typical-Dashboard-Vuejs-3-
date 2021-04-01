@@ -1,0 +1,45 @@
+@import '../abstracts/variables';
+@import '../abstracts/colors';
+@import '../helpers/breakpoints';
+
+.admin-header {
+    padding-top: 5rem;
+
+    .title {
+        padding-left: 3rem;
+        padding-bottom: 3rem;
+    }
+
+    ul {
+        padding-left: 2rem;
+
+        .nav-link.active {
+            text-decoration: underline;
+            text-underline-offset: 8px;
+            text-decoration-thickness: 4px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+    }
+}
+
+.small-admin-header {
+    padding-top: 2rem;
+
+    .title {
+        padding-bottom: 2rem;
+    }
+
+    ul {
+        justify-content: center;
+
+        .nav-link.active {
+            text-decoration: underline;
+            text-underline-offset: 8px;
+            text-decoration-thickness: 4px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+    }
+}
+

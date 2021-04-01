@@ -10,8 +10,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 // Axios defaults
 axios.defaults.headers.common['Accept'] = 'application/json';
-axios.defaults.baseURL = 'http://3.6.89.254:990/';
-// axios.defaults.baseURL = 'https://www.mpost-app.com/api';
+axios.defaults.baseURL = 'https://jsonplaceholder.typicode.com';
 
 createApp(App)
     .use(router)
