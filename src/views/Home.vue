@@ -7,13 +7,14 @@
              
             <navbar :background_color="'white'"></navbar>
 
-            <div class="container">
+            <div class="container mb-4">
               <div class="content-wrapper">
                 <div class="content mx-auto">
-                  
-                  <stats></stats>
+                    
+                  <stats class="mb-4 mt-4"></stats>
 
-                  <lists :title="true"></lists>
+                  <lists :title="title" :url="url" :headers=headers :columns=columns></lists>
+
                 </div>                                          
               </div>
              </div>
@@ -24,16 +25,14 @@
 </template>
 
 <script>
+  import MainFooter from '../components/Footer'
+  import Sidebar from '../components/Sidebar'
+  import Navbar from '../components/Navbar'
+  import Lists from '../components/Lists'
+  import Stats from '../components/Stats'
 
-import MainFooter from '../components/Footer'
-import Sidebar from '../components/Sidebar'
-import Navbar from '../components/Navbar'
-import Lists from '../components/Lists'
-import Stats from '../components/Stats'
-
-
-export default {
-  name: 'Home',
+  export default {
+    name: 'Home',
     components: {
       MainFooter,
       Sidebar,
@@ -41,5 +40,17 @@ export default {
       Lists,
       Stats
     }, 
-}
+    data() {
+      return {
+        url: "/users",
+        headers: ["Name", "Email", "Username", "Phone Number"],
+        columns: ["name", "email", "username", "phone"],
+        title: {
+          "status": true,
+          "title": "Your Data",
+          "actions": true
+        }
+      } 
+    }
+  }
 </script>

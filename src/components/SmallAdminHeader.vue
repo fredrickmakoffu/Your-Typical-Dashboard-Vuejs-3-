@@ -1,7 +1,7 @@
 <template>
     <section class="small-admin-header bg-default">
         <div class="title text-center">
-            <h4 class="fw-bold text-white">Manage Users</h4>
+            <h3 class="fw-bold text-white">Manage Users</h3>
             <p class="text-white">All your user controls, in one place.</p>
         </div>
         <div class="row">

@@ -1,5 +1,6 @@
 @import '../abstracts/variables';
 @import '../abstracts/colors';
+@import '../helpers/breakpoints';
 
 .card-icon {
     display: block;
@@ -23,12 +24,6 @@
         font-size: 13px;
         letter-spacing: .3px;
     }
-}
-
-.search-icon {
-    border: 0;
-    background: transparent;
-    color: #666666;
 }
 
 .content-buttons {
@@ -57,33 +52,105 @@
     margin-bottom: 5px;
 }
 
-.table {
-    margin-top: 25px;
+#tables {
 
-    thead th {
-        background: $darker-color;
-        color: #fafafa;
-        border-bottom: 0;
-
-        &:first-child {
-            border-top-left-radius: 11px;
-            padding-left: 1.3rem !important;
-            padding-right: 0 !important;
+    .table {
+        margin-top: 25px;
+    
+        thead th {
+            background: $darker-color;
+            color: #fafafa;
+            border-bottom: 0;
+    
+            &:first-child {
+                border-top-left-radius: 6px;
+                padding-left: 1.3rem !important;
+                padding-right: 0 !important;
+            }
+    
+            &:last-child {
+                border-top-right-radius: 6px;
+            }
         }
-
-        &:last-child {
-            border-top-right-radius: 11px;
+    
+        tbody {
+            th {
+                padding-left: 1.3rem!important;
+                padding-right: 0!important;
+            }
+        }
+    
+        &>:not(caption)>*>* {
+            padding: 1rem .5rem;
         }
     }
 
-    tbody {
-        th {
-            padding-left: 1.3rem!important;
-            padding-right: 0!important;
-        }
+    @include media("<=tablet") {
+        display: none;
     }
 
-    &>:not(caption)>*>* {
-        padding: 1rem .5rem;
+    @include media(">=tablet", "<laptop") {
+        display: none;
     }
+}
+
+#cards {
+    display: none;
+
+    .card {
+        border-radius: 5px;
+        box-shadow: 0 1px 4px 0 rgb(0 0 0 / 15%);
+        transition: transform 0.55s ease, opacity 0.25s linear;
+        -webkit-transition: transform 0.55s ease, opacity 0.25s linear;
+        -o-transition: transform 0.55s ease, opacity 0.25s linear;
+    }
+
+    .card :before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 100%;
+        width: 5px;
+        // background-color: #0dcaf0;
+        background-color: $info-color;
+    }
+
+    @include media("<=tablet") {
+        display: flex;
+    }
+
+    @include media(">=tablet", "<laptop") {
+        display: flex;
+    }
+}
+
+.form-control {
+    border: 0;
+    border-bottom: 1px solid #eee;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    background: #E8F0FE;
+    border-bottom-color: #86b7fe; 
+}
+
+.form-control:focus + .input-group-text {
+    color: #86b7fe!important; 
+    background-color: inherit;
+    border-bottom-color: #86b7fe; 
+    outline: 0;
+    background: #E8F0FE;
+}
+
+.input-group-text {
+    border: 0;
+    background: transparent;
+    border-bottom: 1px solid #eee;
+}
+
+.form-control::placeholder {
+    color: #6c757d;
 }

@@ -3,7 +3,7 @@
     <div class="container">
       <div class="navbar-brand bars" @click="toggled()">
         <span style="display: -webkit-inline-box;">
-          <font-awesome-icon class="nav-icon text-white" :icon="['fa', 'bars']" />
+          <font-awesome-icon class="nav-icon" :icon="['fa', 'bars']" />
         </span>
       </div>
 
@@ -50,7 +50,7 @@
         </div>
       </span>
 
-      <div class="divider mt-4"></div>
+      <div class="divider mt-4 d-none"></div>
     </div>
   </nav>
 </template>

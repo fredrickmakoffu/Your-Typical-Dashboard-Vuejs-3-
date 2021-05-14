@@ -1,6 +1,6 @@
 <template>
-    <footer class="main-footer">
-        <div class="float-end me-4">
+    <footer class="main-footer d-flex">
+        <div class="float-end ms-auto">
           Copyright &copy;  
 
           Built on <a href="www.inshaka.ga">Inshaka</a>
@@ -18,6 +18,7 @@
 
 <script>
 export default {
-    name: 'Footer'
+    name: 'Footer',
+    props: ['center']
 }
 </script>

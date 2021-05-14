@@ -1,5 +1,8 @@
 <template>
     <section class="admin-header bg-primary">
+
+        <navbar :background_color="'transparent'" style="margin-bottom: 5rem"></navbar>
+        
         <div class="title">
             <h4 class="fw-bold text-white">Manage Users</h4>
             <p class="text-white">All your user controls, in one place.</p>
@@ -7,16 +10,10 @@
 
         <ul class="nav">
             <li class="nav-item">
-                <a class="nav-link text-white active" aria-current="page" href="#">Active</a>
+                <a class="nav-link text-white active" aria-current="page" href="#">Dashboard I</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                <a class="nav-link text-white" href="#">Dashboard II</a>
             </li>
         </ul>
     </section>
@@ -27,8 +24,12 @@
 </style>
 
 <script>
+import Navbar from '../components/Navbar'
 
 export default {
-    name: "AdminHeader"
+    name: "AdminHeader",
+    components: {
+        Navbar
+    }
 }
 </script>

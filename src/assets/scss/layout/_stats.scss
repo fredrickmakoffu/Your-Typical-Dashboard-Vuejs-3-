@@ -1,19 +1,20 @@
 @import '../abstracts/variables';
 @import '../abstracts/colors';
 
-.all-stats {
-    padding-top: 3rem;
+
+.card {
+    padding-top: 1rem; 
     padding-bottom: 1rem;
+    
+    h1{
+        letter-spacing: 2px
+    }
 }
 
 .card-icon {
-    display: block;
-    text-align: center;
-    margin: 2.4rem 0;
-
-    .icon {
-        font-size: 3rem;
-    }
+    font-size: 2rem;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 .card-icon-title {
@@ -25,7 +26,7 @@
 
 .stats {
     border-radius: 15px;
-    box-shadow: 0 5px 20px 0 rgba(0,0,0,0.15);
+    box-shadow: 0 1px 5px 0 rgb(0 0 0 / 15%);
     transition: transform 0.55s ease,opacity 0.25s linear;
     -webkit-transition: transform 0.55s ease,opacity 0.25s linear;
     -o-transition: transform 0.55s ease,opacity 0.25s linear;
@@ -34,3 +35,7 @@
         transform: translateY(-5px);
     }
 }
+
+canvas {
+    margin-top: 2rem;
+}       

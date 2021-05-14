@@ -1,5 +1,5 @@
 <template>
-    <section-title v-if="title.status == true" :title=title.title :actions=title.actions></section-title>
+    <section-title v-if="title"></section-title>
 
     <div class="row">
         <div class="col-md-12">
@@ -20,15 +20,14 @@
         </div>
     </div>
     
-    <div id="tables" class="row">
+    <div class="row">
         <div class="col-md-12">
-            <small class="text-muted fw-bold">+{{ totals }} total</small>
-            <small class="text-muted float-end fw-bold">{{ totals }} records found.</small>
+            <small class="text-muted me-3 fw-bold">+{{ totals }} total</small>
+            <small class="text-muted float-end me-3 fw-bold">{{ totals }} records found.</small>
             
             <table id="table" class="table table-striped mt-2">
                 <thead class="table-dark">
                     <tr>
-                        <th scope="col">#</th>
                         <th v-for="(header, index) in headers" :key="index" scope="col">{{ header }}</th>
                     </tr>
                 </thead>
@@ -40,20 +39,12 @@
                     </tr>
                 </tbody>
             </table>
-        </div>
-    </div>
-    
-    <div id="cards" class="row mb-3">
-        <div class="col-md-12">
-            <small class="text-muted fw-bold">+{{ totals }} total</small>
-            <small class="text-muted float-end fw-bold">{{ totals }} records found.</small>
-        </div>
 
-        <div class="col-md-6 mt-3" v-for="(item, index) in data" :key="index">
-            <div class="card mb-2 border-0">
-                <div class="card-body pb-0">
-                    <p class="text-dark fw-bold">{{ index + 1 }}. </p>
-                    <p class="text-dark mb-3" v-for="(column, index) in columns" :key="index"> <span class="fw-bold text-uppercase">{{ column }}: </span> {{ item[column] }}</p>
+            <div class="card" v-for="(header, index) in headers" :key="index" >
+                <div class="card-body">
+                    <div class="col-6" v-for="(item, index) in data" :key="index">
+                        {{ item[column] }}
+                    </div>
                 </div>
             </div>
         </div>
@@ -102,7 +93,7 @@ export default {
     name: 'Lists',
     props: {
         title: {
-            type: Object,
+            type: Boolean,
             required: true
         },
         url: {
@@ -149,6 +140,74 @@ export default {
                 this.error = error.response.data
                 console.log(this.error);
             })
+        },
+        next() {
+            // increment page + limit
+            this.page++
+            this.current_limit = this.current_limit + this.limit
+
+            // if current limit > limit, terminate
+            if(this.hidePrevious == true && this.current_limit > this.limit) {
+                this.hidePrevious = false
+            }
+
+            // if max - current limit is less than limit, hide next
+            if((this.max - this.current_limit) <= this.limit){
+                this.hideNext = true
+                this.hidePrevious = false
+            }
+
+            // get data to populate lists
+            this.getDatabyPage(this.page, this.limit, '')
+
+            document.getElementById("table").scrollIntoView(true)
+        },
+
+        previous() {
+            // increment page + limit
+            this.page--
+            this.current_limit = this.current_limit - this.limit
+            
+            if(this.hideNext == true && ((this.max - this.current_limit) > this.limit)) {
+                this.hideNext = false
+            }
+
+            // if current limit <= limit, terminate
+            if(this.current_limit <= this.limit) {
+                this.hidePrevious = true
+                this.hideNext = false
+            }
+
+            // get data to populate lists
+            this.getDatabyPage(this.page, this.limit)
+            document.getElementById("table").scrollIntoView(true)
+        },
+        start() {
+            this.page = 1
+            this.current_limit = this.limit
+            
+            this.hideNext = false
+            this.hidePrevious = true
+
+            this.getDatabyPage(this.page, this.limit, '')
+        },
+
+        end() {
+            this.page = this.max/this.limit
+            this.current_limit = this.max - this.limit
+
+            this.hideNext = true
+            this.hidePrevious = false
+
+            this.getDatabyPage(this.page, this.limit,)
+        },
+        
+        fetchResults(){
+            if(this.search !== '') {
+                this.getDatabyPage(this.page, this.limit, this.search)
+            } else {
+                 this.getDatabyPage(1, 25, '')
+            }
         }
     }
 }

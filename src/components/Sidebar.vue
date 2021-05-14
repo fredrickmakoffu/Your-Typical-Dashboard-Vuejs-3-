@@ -26,20 +26,11 @@
             </a> 
         </li>
 
-        <li class="list-group-item">
-            <a href="#" class="d-flex">
-                <span>
-                    <font-awesome-icon class="icon" :icon="['fa', 'star']" /> 
-                    <span class="list-name"> Recent </span>  
-                </span>
-            </a> 
-        </li>
-
         <li class="list-group-item active" v-on:click="expand($event.currentTarget)">
             <a href="#" class="d-flex">
                 <span>
-                    <font-awesome-icon class="icon" :icon="['fa', 'file']" /> 
-                    <span class="list-name"> Draft </span>  
+                    <font-awesome-icon class="icon" :icon="['fa', 'crown']" /> 
+                    <span class="list-name"> Administration </span>  
                 </span>
 
                 <font-awesome-icon class="icon me-0" :icon="['fa', 'caret-down']" /> 
@@ -48,27 +39,27 @@
             <ul class="list-nav-child list-group list-group-flush">
                 <li class="list-group-item">
                     <a href="#" >
-                        <font-awesome-icon class="icon" :icon="['fa', 'angle-right']" />  &nbsp; Cras justo odio 
+                        <font-awesome-icon class="icon" :icon="['fa', 'angle-right']" />  &nbsp;Manage Users
                     </a>
                 </li>
                 <li class="list-group-item">
                     <a href="#" >
-                        <font-awesome-icon class="icon" :icon="['fa', 'angle-right']" />  &nbsp; Dapibus ac facilisis in
+                        <font-awesome-icon class="icon" :icon="['fa', 'angle-right']" />  &nbsp; Manage Clusters
                     </a>
                 </li>
                 <li class="list-group-item">
                     <a href="#" >
-                        <font-awesome-icon class="icon" :icon="['fa', 'angle-right']" />  &nbsp; Morbi leo risus
+                        <font-awesome-icon class="icon" :icon="['fa', 'angle-right']" />  &nbsp; Manage Modules
                     </a>
                 </li>
                 <li class="list-group-item">
                     <a href="#" >
-                        <font-awesome-icon class="icon" :icon="['fa', 'angle-right']" />  &nbsp; Porta ac consectetur ac
+                        <font-awesome-icon class="icon" :icon="['fa', 'angle-right']" />  &nbsp; Manage Dashboards
                     </a>
                 </li>
                 <li class="list-group-item">
                     <a href="#" >
-                        <font-awesome-icon class="icon" :icon="['fa', 'angle-right']" />  &nbsp; Vestibulum at eros
+                        <font-awesome-icon class="icon" :icon="['fa', 'angle-right']" />  &nbsp; General Controls
                     </a>
                 </li>
             </ul>
@@ -77,8 +68,8 @@
         <li class="list-group-item">
             <a href="#" class="d-flex">
                 <span>
-                    <font-awesome-icon class="icon" :icon="['fa', 'users']" /> 
-                    <span class="list-name"> My Team </span>  
+                    <font-awesome-icon class="icon" :icon="['fa', 'hammer']" /> 
+                    <span class="list-name"> Create Forms </span>  
                 </span>
             </a> 
         </li>
@@ -86,11 +77,33 @@
         <li class="list-group-item">
             <a href="#" class="d-flex">
                 <span>
-                    <font-awesome-icon class="icon" :icon="['fa', 'user']" /> 
-                    <span class="list-name"> My Account </span>  
+                    <font-awesome-icon class="icon" :icon="['fa', 'search']" /> 
+                    <span class="list-name"> Search </span>  
                 </span>
             </a> 
         </li>
+
+
+        <li class="list-group-item">
+            <a href="#" class="d-flex">
+                <span>
+                    <font-awesome-icon class="icon" :icon="['fa', 'chart-pie']" /> 
+                    <span class="list-name"> Analytics </span>  
+                </span>
+            </a> 
+        </li>
+        
+
+
+        <li class="list-group-item">
+            <a href="#" class="d-flex">
+                <span>
+                    <font-awesome-icon class="icon" :icon="['fa', 'user']" /> 
+                    <span class="list-name"> My Account  </span>  
+                </span>
+            </a> 
+        </li>
+        
         
       </div>
     </div>

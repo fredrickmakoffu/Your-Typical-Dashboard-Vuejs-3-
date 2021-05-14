@@ -21,14 +21,14 @@
 
     .divider {
         display: none;
-        height: 1px;
-        margin: 4px auto;
-        padding: 0;
-        width: 90%;
-        border: 1px solid $light-grey-color;
 
         @include media("<=tablet") {
             display: inherit;
+            height: 1px;
+            margin: 4px auto;
+            padding: 0;
+            width: 90%;
+            border: 1px solid $light-grey-color;
         }
     }
 
@@ -158,6 +158,7 @@
 
     .navbar-brand.bars {
         display: none!important;
+        margin-left: 20px;
 
         @include media("<=tablet") {
             display: block!important;
@@ -183,4 +184,8 @@
         color: $dark-color  ;
         font-size: 14px;
     }
+}
+
+.navbar .dropdown-toggle::after {
+    color: $white-color;
 }

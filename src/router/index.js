@@ -23,6 +23,30 @@ const routes = [
     name: 'Dashboard',
     component: view('Dashboard.vue')
   },
+
+  {
+    path: '/login',
+    name: 'Login',
+    component: view('Login.vue')
+  },
+
+  {
+    path: '/register',
+    name: 'Register',
+    component: view('Register.vue')
+  },
+
+  {
+    path: '/forgot-password',
+    name: 'ForgotPassword',
+    component: view('ForgotPassword.vue')
+  },
+
+  {
+    path: '/reset-password',
+    name: 'ResetPassword',
+    component: view('ResetPassword.vue')
+  },
 ]
 
 const router = createRouter({
