@@ -14,7 +14,6 @@
                             </button>
                         </span>
                     </div>
-
                 </form>
             </div>
         </div>
@@ -23,7 +22,7 @@
     <div id="tables" class="row">
         <div class="col-md-12">
             <small class="text-muted fw-bold">+{{ totals }} total</small>
-            <small class="text-muted float-end fw-bold">{{ totals }} records found.</small>
+            <small class="text-muted float-end fw-bold">{{ totals }} records showing</small>
             
             <table id="table" class="table table-striped mt-2">
                 <thead class="table-dark">
@@ -99,7 +98,7 @@ import FormComponent from '../components/Form';
 import SectionTitle from'../components/SectionTitle';
 
 export default {
-    name: 'Lists',
+    name: 'AutoList',
     props: {
         title: {
             type: Object,

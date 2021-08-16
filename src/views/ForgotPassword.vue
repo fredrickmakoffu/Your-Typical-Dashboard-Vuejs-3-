@@ -60,40 +60,6 @@
         bottom: 0;
     }
 
-    .form-control {
-        border: 0;
-        border-bottom: 1px solid #eee;
-        padding-top: 0.8rem;
-        font-size: 16px!important;
-        padding-bottom: 0.8rem;
-    }
-
-    .form-control:focus {
-        box-shadow: none;
-        background: #E8F0FE;
-        border-bottom-color: #86b7fe; 
-    }
-
-    .form-control:focus + .input-group-text {
-        color: #86b7fe!important; 
-        background-color: inherit;
-        border-bottom-color: #86b7fe; 
-        outline: 0;
-        background: #E8F0FE;
-    }
-
-    .input-group-text {
-        border: 0;
-        background: transparent;
-        border-bottom: 1px #eee solid;
-    }
-
-    .form-control::placeholder {
-        color: #6c757d;
-        font-size: 16px;
-        letter-spacing: 0; 
-    }
-
     .card {
         box-shadow: 0 4px 8px rgb(0 0 0 / 3%)
     }

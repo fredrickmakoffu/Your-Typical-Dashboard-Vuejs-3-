@@ -63,7 +63,7 @@
                                 </div>
 
                                 <div class="form-row mt-3 mb-3">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
                                     <label class="form-check-label ms-2" for="flexCheckDefault">
                                         I have read and accepted the Terms and Conditions
                                     </label>
@@ -106,7 +106,7 @@
         </div>
 
         <div class="container-fluid">
-            <p class="text-center pt-4">Don't have an account? <router-link :to="'/register'" class="text-primary">Create One</router-link></p>
+            <p class="text-center pt-4">Don't have an account? <router-link :to="'/login'" class="text-primary">Create One</router-link></p>
         </div>
 
         <main-footer :center=true></main-footer>
@@ -117,40 +117,6 @@
     @import '../assets/scss/base/_base.scss';
     @import '../assets/scss/base/_fonts.scss';
     @import '../assets/scss/helpers/breakpoints.scss';
-
-    .form-control {
-        border: 0;
-        border-bottom: 1px solid #eee;
-        padding-top: 0.8rem;
-        font-size: 16px!important;
-        padding-bottom: 0.8rem;
-    }
-
-    .form-control:focus {
-        box-shadow: none;
-        background: #E8F0FE;
-        border-bottom-color: #86b7fe; 
-    }
-
-    .form-control:focus + .input-group-text {
-        color: #86b7fe!important; 
-        background-color: inherit;
-        border-bottom-color: #86b7fe; 
-        outline: 0;
-        background: #E8F0FE;
-    }
-
-    .input-group-text {
-        border: 0;
-        background: transparent;
-        border-bottom: 1px #eee solid;
-    }
-
-    .form-control::placeholder {
-        color: #6c757d;
-        font-size: 16px;
-        letter-spacing: 0; 
-    }
 
     .card {
         box-shadow: 0 4px 8px rgb(0 0 0 / 3%)
@@ -180,7 +146,7 @@
                 },
                 status_data: {
                     "success": false,
-                    "success_message": 'Login Successful!',
+                    "success_message": 'Registration Successful!',
                     "error": false,
                     "error_message": 'There are some input errors.',
                 },
@@ -189,8 +155,10 @@
         },
         methods: {
             handleSubmit() {
-                this.success
-            },
+                this.status_data.success = true 
+                // Redirect   
+                setTimeout(() => (this.$router.push('/login ')), 900)
+            },  
             seePassword(id) {
                 if(document.querySelector('#' + id).type == 'password') {
                     document.querySelector('#' + id).type = 'text'

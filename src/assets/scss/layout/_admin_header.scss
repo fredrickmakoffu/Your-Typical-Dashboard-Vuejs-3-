@@ -11,32 +11,40 @@
     ul {
         padding-left: 2rem;
 
+        .nav-link {
+            letter-spacing: 1px;
+        }
+
         .nav-link.active {
+            letter-spacing: 1px;
             text-decoration: underline;
             text-underline-offset: 8px;
             text-decoration-thickness: 4px;
             font-weight: 600;
-            letter-spacing: 0.3px;
         }
     }
 }
 
 .small-admin-header {
-    padding-top: 5rem;
-
     .title {
         padding-bottom: 2rem;
     }
 
     ul {
-        justify-content: center;
+        // justify-content: center;
+
+
+        .nav-link {
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
 
         .nav-link.active {
+            letter-spacing: 1px;
             text-decoration: underline;
             text-underline-offset: 8px;
             text-decoration-thickness: 4px;
             font-weight: 600;
-            letter-spacing: 0.3px;
         }
     }
 }

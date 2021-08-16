@@ -34,9 +34,11 @@
                                             <font-awesome-icon id="lock" :icon="['fa', 'lock']" />
                                         </span>
                                     </div>
-                                    <small class="text-muted">
-                                        <a href="#" class="text-dark fw-bold text-decoration-none float-end mt-2" @click="forgotPassword()">Forgot Password</a>
-                                    </small>
+                                    <router-link :to="'/forgot-password'">
+                                        <small class="text-muted">
+                                            <a href="#" class="text-dark fw-bold text-decoration-none float-end mt-2">Forgot Password</a>
+                                        </small>
+                                    </router-link>
                                 </div>
 
                                 <div class="form-row mt-3 mb-3">
@@ -52,12 +54,6 @@
                                             <span style="letter-spacing: 2px">Login</span> <font-awesome-icon class="icon ms-1 me-1" :icon="['fa', 'unlock']" />
                                         </button>
                                     </div>
-                                </div>
-
-                                <div class="row d-flex d-none" id="forgot-password">
-                                    <button class="btn btn-transparent btn-sm mt-4 w-100 text-uppercase fw-bold" type="button" @click="forgotPassword()">
-                                        Forgot Password 
-                                    </button>
                                 </div>
 
                                 <div class="row mt-1">
@@ -101,40 +97,6 @@
     @import '../assets/scss/base/_fonts.scss';
     @import '../assets/scss/helpers/breakpoints.scss';
 
-    .form-control {
-        border: 0;
-        border-bottom: 1px solid #eee;
-        padding-top: 0.8rem;
-        font-size: 16px!important;
-        padding-bottom: 0.8rem;
-    }
-
-    .form-control:focus {
-        box-shadow: none;
-        background: #E8F0FE;
-        border-bottom-color: #86b7fe; 
-    }
-
-    .form-control:focus + .input-group-text {
-        color: #86b7fe!important; 
-        background-color: inherit;
-        border-bottom-color: #86b7fe; 
-        outline: 0;
-        background: #E8F0FE;
-    }
-
-    .input-group-text {
-        border: 0;
-        background: transparent;
-        border-bottom: 2px solid #eee;
-    }
-
-    .form-control::placeholder {
-        color: #6c757d;
-        font-size: 16px;
-        letter-spacing: 0; 
-    }
-
     .card {
         box-shadow: 0 4px 8px rgb(0 0 0 / 3%)
     }
@@ -170,7 +132,9 @@
         },
         methods: {
             handleSubmit() {
-                this.success
+                this.status_data.success = true 
+                // Redirect   
+                setTimeout(() => (this.$router.push('/')), 900)
             },
             seePassword() {
                 if(document.querySelector('#password').type == 'password') {
@@ -180,10 +144,10 @@
                 }
             },
             hideAlert() {
-                if(this.success == true) {
-                    this.success = false
-                } else if(this.error == true) {
-                    this.error = false
+                if(this.status_data.success == true) {
+                    this.status_data.success = false
+                } else if(this.status_data.error == true) {
+                    this.status_data.error = false
                 }
             }
         }

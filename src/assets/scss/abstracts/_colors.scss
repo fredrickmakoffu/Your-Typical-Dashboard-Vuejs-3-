@@ -176,6 +176,37 @@
 }
 
 
-.bg-warning {
+.bg-success {
     background-color: $success-color!important;
+}
+
+.grey {
+    background-color: $grey-color;
+    color: $dark-color;
+    border: none;
+
+
+    &:hover {
+        background-color: $dark-grey-color;
+        color: $dark-color;
+    }
+
+    &:active {
+        background-color: $dark-grey-color;
+        color: $dark-color;
+    }
+
+    &:visited {
+        background-color: $dark-grey-color ;
+        color: $dark-color;    
+    }
+}
+
+
+.bg-grey {
+    background-color: $grey-color!important;
+}
+
+.bg-dark-grey {
+    background-color: $dark-grey-color!important;
 }

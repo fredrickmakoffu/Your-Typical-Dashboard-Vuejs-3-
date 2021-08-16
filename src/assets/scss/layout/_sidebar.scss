@@ -12,17 +12,17 @@
     left: 0;
     overflow: hidden;
     outline: none;
-    -webkit-transition: all $transition_speed ease-out;
-    -moz-transition: all $transition_speed ease-out;
-    -o-transition: all $transition_speed ease-out;
-    transition: all $transition_speed ease-out;
+    -webkit-transition: all $transition_speed ease-in;
+    -moz-transition: all $transition_speed ease-in;
+    -o-transition: all $transition_speed ease-in;
+    transition: all $transition_speed ease-in;
     
     @include media("<=tablet") {
-        display: none;
+        left: -280px;
     }
 
     @include media(">=tablet", "<laptop") {
-        display: none;
+        left: -280px;
     }
 
     .brand {
@@ -32,10 +32,6 @@
             font-size: 1rem;
             font-weight: 700;
             color: #666666;
-        }
-
-        .toggled {
-            display: none;
         }
 
         img {
@@ -55,19 +51,13 @@
         }
 
         .close {
-            display: none;
-            @include media("<=tablet") {
-                display: inherit;
-                margin: 6px auto auto auto;
-                color: $darker-color;
-                cursor: pointer;
-            }
-        
-            @include media(">=tablet", "<laptop") {
-                display: inherit;
-                margin: 6px auto auto auto;
-                color: $darker-color;
-                cursor: pointer;
+            display: inherit;
+            margin: 11px 20px auto auto;
+            color: $darker-color;
+            cursor: pointer;
+
+            @include media(">laptop") {
+                display: none;
             }
         }
     }
@@ -87,6 +77,7 @@
         background-color: transparent;
         position: relative;
         border-width: 0;
+        cursor: pointer;
 
         a {
             position: relative;
@@ -248,18 +239,10 @@
             }
         }
     }
-
-
 }
 
 .toggled {
     @include media("<=tablet") {
-        display: block!important;
-        opacity: 1!important;
-    }
-
-    @include media(">=tablet", "<laptop") {
-        display: block!important;
-        opacity: 1!important;
+        transform: translateX(100%);
     }
 }

@@ -1,6 +1,7 @@
 <template>
   <nav :class="'navbar bg-' + background_color">
     <div class="container">
+      
       <div class="navbar-brand bars" @click="toggled()">
         <span style="display: -webkit-inline-box;">
           <font-awesome-icon class="nav-icon" :icon="['fa', 'bars']" />
@@ -27,28 +28,30 @@
 
           <div class="dropdown-menu">
             <span class="account">
-              <p class="account-text" style="display: inline-block">Hey, Fredrick!</p>
+              <p class="account-text" style="display: inline-block">Hey, Joseph!</p>
             </span>
             
-            <a href="<?php echo base_url(); ?>account_details" class="dropdown-item">
+            <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#profile">
               <font-awesome-icon class="icon" :icon="['fa', 'user']" /> 
               <p class="dropdown-list"> My Account </p>
             </a>
 
-            <a href="<?php echo base_url(); ?>profile" class="dropdown-item">
-              <font-awesome-icon class="icon" :icon="['fa', 'cog']" />
-              <p class="dropdown-list"> Settings </p>
+            <a class="dropdown-item" @click="darkMode()">
+              <font-awesome-icon class="icon" :icon="['fa', 'moon']" /> 
+              <p class="dropdown-list"> Dark Theme </p>
             </a>
 
             <div class="dropdown-divider"></div>
 
-            <a href="<?= base_url();?>logout" class="dropdown-item logout">
+            <router-link :to="'/login'"  class="dropdown-item logout">
               <font-awesome-icon class="icon logout" :icon="['fa', 'sign-out-alt']" />
               <p class="dropdown-list"> Logout </p>
-            </a>
+            </router-link>
           </div>
         </div>
       </span>
+
+      <profile></profile>
 
       <div class="divider mt-4 d-none"></div>
     </div>
@@ -57,9 +60,17 @@
 
 <style lang="scss" scoped>
     @import '../assets/scss/layout/_navbar.scss';
+
+    .dropdown-item {
+      cursor: pointer;
+    }
+    
 </style>
 
 <script>
+import Profile from '../components/Profile';
+
+
 export default {
     name: 'Navbar',
     props: {
@@ -68,9 +79,12 @@ export default {
         required: true
       }
     },
+    components: {
+      Profile
+    },
     data() {
       return {
-        color: ''
+        color: ''      
       }
     },
     mounted() {

@@ -16,61 +16,44 @@
         </div>
 
         <div class="list-nav list-group list-group-flush">
-            <li :class="['list-group-item', {'active': page == 'Home'}]">
-                <router-link :to="'/'" class="d-flex">
+            <li v-for="({title, link, icon, if_children, children, modal, index}) in sidebar_data" :key="index" :class="['list-group-item', {'active': page == title}]">
+                <router-link v-if="!modal && !if_children" :to="'/' + link" class="d-flex">
                     <span>
-                        <font-awesome-icon class="icon float-right" :icon="['fa', 'home']" /> 
-                        <span class="list-name"> Home </span>  
+                        <font-awesome-icon class="icon float-right" :icon="['fa', icon]" /> 
+                        <span class="list-name"> {{ title }} </span>  
                     </span>
                 </router-link> 
-            </li>
 
-            <li :class="['list-group-item', {'active': page == 'Admin'}]" v-on:click="expand($event.currentTarget)">
-                <a class="d-flex">
+                <a v-if="modal && !if_children" class="dropdown-item" data-bs-toggle="modal" :data-bs-target="'#' + link">
                     <span>
-                        <font-awesome-icon class="icon" :icon="['fa', 'crown']" /> 
-                        <span class="list-name"> Administration </span>  
+                        <font-awesome-icon class="icon" :icon="['fa', 'user']" /> 
+                        <span class="list-name"> {{ title }}  </span>  
+                    </span>
+                </a>
+
+                <a v-if="if_children" class="d-flex" @click="expand($event.currentTarget)">
+                    <span>
+                        <font-awesome-icon class="icon" :icon="['fa', icon]" /> 
+                        <span class="list-name"> {{ title }} </span>  
                     </span>
 
                     <font-awesome-icon class="icon me-0" :icon="['fa', 'caret-down']" /> 
-                </a> 
+                </a>
 
-                <ul class="list-nav-child list-group list-group-flush">
-                    <li class="list-group-item">
-                        <router-link :to="'/admin'" >
-                            <font-awesome-icon class="icon" :icon="['fa', 'angle-right']" />  &nbsp; Manage Users
+                <ul v-if="if_children" class="list-nav-child list-group list-group-flush">
+                    <li v-for="({child_title, child_link, child_icon, child_modal, child_index}) in children" :key="child_index" class="list-group-item">
+                        <router-link v-if="!child_modal" :to="'/' + child_link" >
+                            <font-awesome-icon class="icon" :icon="['fa', child_icon]" />  &nbsp; {{ child_title }}
                         </router-link>
+
+                        <a v-if="child_modal" class="dropdown-item" data-bs-toggle="modal" :data-bs-target="'#' + child_link">
+                            <font-awesome-icon class="icon" :icon="['fa', child_icon]" />  &nbsp; {{ child_title }}
+                        </a>
                     </li>
                 </ul>
-            </li>
 
-            <li :class="['list-group-item', {'active': page == 'Dashboard'}]">
-                <router-link :to="'/dashboard'" class="d-flex">
-                    <span>
-                        <font-awesome-icon class="icon" :icon="['fa', 'hammer']" /> 
-                        <span class="list-name"> Dashboard </span>  
-                    </span>
-                </router-link>
             </li>
-
-            <li :class="['list-group-item', {'active': page == 'Profile'}]">
-                <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#profile">
-                    <span>
-                        <font-awesome-icon class="icon" :icon="['fa', 'user']" /> 
-                        <span class="list-name"> Your Profile  </span>  
-                    </span>
-                </a>
-            </li>
-
-            <li :class="['list-group-item', {'active': page == 'Guides'}]">
-                <router-link :to="'/guides'" class="dropdown-item">
-                    <span>
-                        <font-awesome-icon class="icon" :icon="['fa', 'info-circle']" /> 
-                        <span class="list-name"> Guide  </span>  
-                    </span>
-                </router-link>
-            </li>
-        </div>
+        </div>        
     </div>
 </template>
 
@@ -80,10 +63,11 @@
 
 <script> 
 export default {
-    name: 'SideBar',
-    props: ['page'],
+    name: 'AutoSideBar',
+    props: ['page', 'sidebar_data'],
     methods: {
         expand(event) {
+
             document.querySelectorAll('.list-nav > .list-group-item').forEach(list => { 
                 if(list.querySelector('.list-name').textContent === event.querySelector('.list-name').textContent) {
                     if(list.querySelector('.list-nav-child').style.height === '0px' || list.querySelector('.list-nav-child').style.height === '') {

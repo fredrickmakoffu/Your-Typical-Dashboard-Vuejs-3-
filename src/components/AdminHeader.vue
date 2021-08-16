@@ -1,19 +1,16 @@
 <template>
-    <section class="admin-header bg-primary">
+    <section class="admin-header bg-default">
 
         <navbar :background_color="'transparent'" style="margin-bottom: 5rem"></navbar>
         
         <div class="title">
-            <h4 class="fw-bold text-white">Manage Users</h4>
-            <p class="text-white">All your user controls, in one place.</p>
+            <h4 class="fw-bold text-white">{{ title }}</h4>
+            <p class="text-white">{{ tagline }}</p>
         </div>
 
         <ul class="nav">
             <li class="nav-item">
-                <a class="nav-link text-white active" aria-current="page" href="#">Dashboard I</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white" href="#">Dashboard II</a>
+                <a class="nav-link text-white active text-uppercase" aria-current="page" href="#">Users</a>
             </li>
         </ul>
     </section>
@@ -28,6 +25,16 @@ import Navbar from '../components/Navbar'
 
 export default {
     name: "AdminHeader",
+    props: {
+        title: {
+            required: true,
+            type: String
+        },
+        tagline: {
+            required: true,
+            type: String
+        },
+    },
     components: {
         Navbar
     }
