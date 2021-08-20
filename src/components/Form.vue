@@ -9,7 +9,9 @@
                         <p class="text-muted">And the relevant description.</p>
                     </span>
                 </div>
+                
                 <status v-model:status_data=status_data></status>
+
                 <form action="#" @submit.prevent="handleSubmit()">
                     <div class="modal-body pt-0">
                         <div class="row mb-4">

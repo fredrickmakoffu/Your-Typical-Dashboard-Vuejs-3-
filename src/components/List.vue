@@ -110,6 +110,374 @@
         </div>
     </div>
 
+        
+    <div id="cards" class="row mb-3">
+        <div class="col-md-12">
+            <small class="text-muted fw-bold">100 total</small>
+            <small class="text-muted float-end fw-bold">10 records found.</small>
+        </div>
+
+        <div class="col-md-6 mt-3">
+            <div class="card mb-2 border-0">
+                <div class="card-body pb-0">
+                    <p class="text-dark fw-bold">1. </p>
+                    
+                    <p class="text-dark mb-3"> 
+                        <span class="fw-bold text-uppercase">
+                            Name:
+                        </span> 
+                        Clementina DuBuque
+                    </p>
+
+                    <p class="text-dark mb-3"> 
+                        <span class="fw-bold text-uppercase">
+                            Email:
+                        </span> 
+                        Rey.Padberg@karina.biz
+                    </p>
+
+                    <p class="text-dark mb-3"> 
+                        <span class="fw-bold text-uppercase">
+                            Username:
+                        </span> 
+                        Moriah.Stanton
+                    </p>
+
+                    <p class="text-dark mb-3"> 
+                        <span class="fw-bold text-uppercase">
+                            Phone:
+                        </span> 
+                        024-648-3804
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 mt-3">
+            <div class="card mb-2 border-0">
+                <div class="card-body pb-0">
+                    <p class="text-dark fw-bold">2. </p>
+                    
+                    <p class="text-dark mb-3"> 
+                        <span class="fw-bold text-uppercase">
+                            Name:
+                        </span> 
+                        Glenna Reichert
+                    </p>
+
+                    <p class="text-dark mb-3"> 
+                        <span class="fw-bold text-uppercase">
+                            Email:
+                        </span> 
+                        Chaim_McDermott@dana.io
+                    </p>
+
+                    <p class="text-dark mb-3"> 
+                        <span class="fw-bold text-uppercase">
+                            Username:
+                        </span> 
+                        Delphine
+                    </p>
+
+                    <p class="text-dark mb-3"> 
+                        <span class="fw-bold text-uppercase">
+                            Phone:
+                        </span> 
+                        (775)976-6794 x41206
+                    </p>
+                </div>
+            </div>
+        </div>  
+
+        <div class="col-md-6 mt-3">
+            <div class="card mb-2 border-0">
+                <div class="card-body pb-0">
+                    <p class="text-dark fw-bold">3. </p>
+                    
+                    <p class="text-dark mb-3"> 
+                        <span class="fw-bold text-uppercase">
+                            Name:
+                        </span> 
+                        Nicholas Runolfsdottir V
+                    </p>
+
+                    <p class="text-dark mb-3"> 
+                        <span class="fw-bold text-uppercase">
+                            Email:
+                        </span> 
+                        Sherwood@rosamond.me
+                    </p>
+
+                    <p class="text-dark mb-3"> 
+                        <span class="fw-bold text-uppercase">
+                            Username:
+                        </span> 
+                        Maxime_Nienow
+                    </p>
+
+                    <p class="text-dark mb-3"> 
+                        <span class="fw-bold text-uppercase">
+                            Phone:
+                        </span> 
+                        586.493.6943 x140
+                    </p>
+                </div>
+            </div>
+        </div>   
+
+        <div class="col-md-6 mt-3">
+            <div class="card mb-2 border-0">
+                <div class="card-body pb-0">
+                    <p class="text-dark fw-bold">4. </p>
+                    
+                    <p class="text-dark mb-3"> 
+                        <span class="fw-bold text-uppercase">
+                            Name:
+                        </span> 
+                        Kurtis Weissnat
+                    </p>
+
+                    <p class="text-dark mb-3"> 
+                        <span class="fw-bold text-uppercase">
+                            Email:
+                        </span> 
+                        Telly.Hoeger@billy.biz
+                    </p>
+
+                    <p class="text-dark mb-3"> 
+                        <span class="fw-bold text-uppercase">
+                            Username:
+                        </span> 
+                        Elwyn.Skiles
+                    </p>
+
+                    <p class="text-dark mb-3"> 
+                        <span class="fw-bold text-uppercase">
+                            Phone:
+                        </span> 
+                        210.067.6132
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 mt-3">
+            <div class="card mb-2 border-0">
+                <div class="card-body pb-0">
+                    <p class="text-dark fw-bold">4. </p>
+                    
+                    <p class="text-dark mb-3"> 
+                        <span class="fw-bold text-uppercase">
+                            Name:
+                        </span> 
+                        Mrs. Dennis Schulist
+                    </p>
+
+                    <p class="text-dark mb-3"> 
+                        <span class="fw-bold text-uppercase">
+                            Email:
+                        </span> 
+                        Karley_Dach@jasper.info
+                    </p>
+
+                    <p class="text-dark mb-3"> 
+                        <span class="fw-bold text-uppercase">
+                            Username:
+                        </span> 
+                        Leopoldo_Corkery
+                    </p>
+
+                    <p class="text-dark mb-3"> 
+                        <span class="fw-bold text-uppercase">
+                            Phone:
+                        </span> 
+                        1-477-935-8478 x6430
+                    </p>
+                </div>
+            </div>
+        </div>  
+
+        <div class="col-md-6 mt-3">
+            <div class="card mb-2 border-0">
+                <div class="card-body pb-0">
+                    <p class="text-dark fw-bold">4. </p>
+                    
+                    <p class="text-dark mb-3"> 
+                        <span class="fw-bold text-uppercase">
+                            Name:
+                        </span> 
+                        Chelsey Dietrich
+                    </p>
+
+                    <p class="text-dark mb-3"> 
+                        <span class="fw-bold text-uppercase">
+                            Email:
+                        </span> 
+                        Lucio_Hettinger@annie.ca
+                    </p>
+
+                    <p class="text-dark mb-3"> 
+                        <span class="fw-bold text-uppercase">
+                            Username:
+                        </span> 
+                        Kamren
+                    </p>
+
+                    <p class="text-dark mb-3"> 
+                        <span class="fw-bold text-uppercase">
+                            Phone:
+                        </span> 
+                        (254)954-1289
+                    </p>
+                </div>
+            </div>
+        </div> 
+
+        <div class="col-md-6 mt-3">
+            <div class="card mb-2 border-0">
+                <div class="card-body pb-0">
+                    <p class="text-dark fw-bold">4. </p>
+                    
+                    <p class="text-dark mb-3"> 
+                        <span class="fw-bold text-uppercase">
+                            Name:
+                        </span> 
+                        Patricia Lebsack
+                    </p>
+
+                    <p class="text-dark mb-3"> 
+                        <span class="fw-bold text-uppercase">
+                            Email:
+                        </span> 
+                        Julianne.OConner@kory.org
+                    </p>
+
+                    <p class="text-dark mb-3"> 
+                        <span class="fw-bold text-uppercase">
+                            Username:
+                        </span> 
+                        Karianne
+                    </p>
+
+                    <p class="text-dark mb-3"> 
+                        <span class="fw-bold text-uppercase">
+                            Phone:
+                        </span> 
+                        493-170-9623 x156
+                    </p>
+                </div>
+            </div>
+        </div> 
+
+        <div class="col-md-6 mt-3">
+            <div class="card mb-2 border-0">
+                <div class="card-body pb-0">
+                    <p class="text-dark fw-bold">4. </p>
+                    
+                    <p class="text-dark mb-3"> 
+                        <span class="fw-bold text-uppercase">
+                            Name:
+                        </span> 
+                        Clementine Bauch
+                    </p>
+
+                    <p class="text-dark mb-3"> 
+                        <span class="fw-bold text-uppercase">
+                            Email:
+                        </span> 
+                        Nathan@yesenia.net
+                    </p>
+
+                    <p class="text-dark mb-3"> 
+                        <span class="fw-bold text-uppercase">
+                            Username:
+                        </span> 
+                        Samantha
+                    </p>
+
+                    <p class="text-dark mb-3"> 
+                        <span class="fw-bold text-uppercase">
+                            Phone:
+                        </span> 
+                        1-463-123-4447
+                    </p>
+                </div>
+            </div>
+        </div>   
+
+        <div class="col-md-6 mt-3">
+            <div class="card mb-2 border-0">
+                <div class="card-body pb-0">
+                    <p class="text-dark fw-bold">4. </p>
+                    
+                    <p class="text-dark mb-3"> 
+                        <span class="fw-bold text-uppercase">
+                            Name:
+                        </span> 
+                        Ervin Howell
+                    </p>
+
+                    <p class="text-dark mb-3"> 
+                        <span class="fw-bold text-uppercase">
+                            Email:
+                        </span> 
+                        Shanna@melissa.tv
+                    </p>
+
+                    <p class="text-dark mb-3"> 
+                        <span class="fw-bold text-uppercase">
+                            Username:
+                        </span> 
+                        Antonette
+                    </p>
+
+                    <p class="text-dark mb-3"> 
+                        <span class="fw-bold text-uppercase">
+                            Phone:
+                        </span> 
+                        010-692-6593 x09125
+                    </p>
+                </div>
+            </div>
+        </div> 
+
+        <div class="col-md-6 mt-3">
+            <div class="card mb-2 border-0">
+                <div class="card-body pb-0">
+                    <p class="text-dark fw-bold">4. </p>
+                    
+                    <p class="text-dark mb-3"> 
+                        <span class="fw-bold text-uppercase">
+                            Name:
+                        </span> 
+                        Leanne Graham
+                    </p>
+
+                    <p class="text-dark mb-3"> 
+                        <span class="fw-bold text-uppercase">
+                            Email:
+                        </span> 
+                        Sincere@april.biz
+                    </p>
+
+                    <p class="text-dark mb-3"> 
+                        <span class="fw-bold text-uppercase">
+                            Username:
+                        </span> 
+                        Bret
+                    </p>
+
+                    <p class="text-dark mb-3"> 
+                        <span class="fw-bold text-uppercase">
+                            Phone:
+                        </span> 
+                        1-770-736-8031 x56442
+                    </p>
+                </div>
+            </div>
+        </div>                         
+    </div>
+
     <div class="row navigation">
         <div class="col-12 d-flex">
             <div class="mx-auto">

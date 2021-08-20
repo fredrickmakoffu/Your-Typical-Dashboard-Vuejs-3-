@@ -10,7 +10,6 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 // Axios defaults
 axios.defaults.headers.common['Accept'] = 'application/json';
-axios.defaults.baseURL = 'https://jsonplaceholder.typicode.com';
 
 createApp(App)
     .use(router)

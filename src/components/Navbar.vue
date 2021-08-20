@@ -4,7 +4,7 @@
       
       <div class="navbar-brand bars" @click="toggled()">
         <span style="display: -webkit-inline-box;">
-          <font-awesome-icon class="nav-icon" :icon="['fa', 'bars']" />
+          <font-awesome-icon :class="'nav-icon text-' + color" :icon="['fa', 'bars']" />
         </span>
       </div>
 

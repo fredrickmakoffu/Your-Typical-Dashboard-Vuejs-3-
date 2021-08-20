@@ -239,6 +239,12 @@
             }
         }
     }
+
+    .list-group-item.item-active {  
+        &> a {
+            font-weight: 600;
+        }
+    }
 }
 
 .toggled {

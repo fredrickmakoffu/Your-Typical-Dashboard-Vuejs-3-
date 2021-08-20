@@ -1,7 +1,7 @@
 <template>
     <!-- Aggregates -->
     <div class="row gx-2">
-        <div class="col-lg-3 col-md-6 col-sm-6 mb-2">
+        <!-- <div class="col-lg-3 col-md-6 col-sm-6 mb-2">
             <div class="card stats primary">    
                 <div class="card-body">
                     <div class="d-flex">
@@ -11,7 +11,7 @@
                         </span>
                         
                         <font-awesome-icon class="icon card-icon ms-auto" :icon="['fa', 'users']" /> 
-                    </div>  
+                    </div>  2540
                 </div>
             </div>
         </div>
@@ -59,7 +59,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
+
+        <auto-stats :stats_data=stats_data></auto-stats>
     </div>
 
     <!-- Graphs -->
@@ -194,15 +196,29 @@
 
 <script>
 import Chart from 'chart.js';
+import AutoStats from '../AutoStats'
 
 export default {
     name: 'SalesDashboard',
+    data() {
+        return {
+            stats_data: [
+                { title: "Clients", value: "2540", icon: "users", color: "primary"},
+                { title: "Active Accounts", value: "125750", icon: "dollar-sign", color: "success"},
+                { title: "Profit Earned", value: "5000", icon: "exclamation-triangle", color: "warning"},
+                { title: "Expenses", value: "600", icon: "times-circle", color: "danger"},
+            ]
+        }
+    },
     mounted() {
       this.subscribers()
       this.revenues()
       this.locations()
       this.gender()
       this.clients()
+    },
+    components:{
+        AutoStats
     },
     methods: {
       formatNumber(num) {

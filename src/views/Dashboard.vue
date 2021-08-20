@@ -3,7 +3,7 @@
         <div class="body">
             <div class="backdrop" v-on:click="close()"></div>
             
-            <small-admin-header v-model:screen='screen' :title="'Your Dashboard'" :tagline="'All about your business, in one place'" v-model:all_screens=all_screens></small-admin-header>
+            <small-header v-model:screen='screen' :title="'Your Dashboard'" :tagline="'All about your business, in one place'" v-model:all_screens=all_screens></small-header>
 
             <breadcrumbs :breadcrumbs_data=breadcrumbs_data class="breadcrumbs-border-bottom"></breadcrumbs>
             
@@ -37,7 +37,7 @@
 
 <script>
   import MainFooter from '../components/Footer';
-  import SmallAdminHeader from '../components/SmallAdminHeader'
+  import SmallHeader from '../components/SmallHeader'
   import SectionTitle from '../components/SectionTitle';
   import SalesDashboard from '../components/Dashboard/Sales';
   import RevenueDashboard from '../components/Dashboard/Revenue';
@@ -59,7 +59,7 @@
       }
     },
     components: {
-      SmallAdminHeader,
+      SmallHeader,
       MainFooter,
       SectionTitle,
       SalesDashboard,
