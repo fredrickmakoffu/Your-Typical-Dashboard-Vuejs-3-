@@ -3,7 +3,7 @@
         <div class="body">
             <div class="backdrop" v-on:click="close()"></div>
             
-            <small-header v-model:screen='screen' :title="'Your Dashboard'" :tagline="'All about your business, in one place'" v-model:all_screens=all_screens></small-header>
+            <small-header :sidebar="false" v-model:screen='screen' :title="'Your Dashboard'" :tagline="'All about your business, in one place'" v-model:all_screens=all_screens></small-header>
 
             <breadcrumbs :breadcrumbs_data=breadcrumbs_data class="breadcrumbs-border-bottom"></breadcrumbs>
             

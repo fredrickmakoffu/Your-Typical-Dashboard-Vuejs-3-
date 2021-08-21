@@ -2,7 +2,7 @@
   <nav :class="'navbar bg-' + background_color">
     <div class="container">
       
-      <div class="navbar-brand bars" @click="toggled()">
+      <div class="navbar-brand bars" v-if="sidebar" @click="toggled()">
         <span style="display: -webkit-inline-box;">
           <font-awesome-icon :class="'nav-icon text-' + color" :icon="['fa', 'bars']" />
         </span>
@@ -77,6 +77,10 @@ export default {
       background_color: {
         type: String,
         required: true
+      },
+      sidebar: {
+        required: false,
+        type: Boolean
       }
     },
     components: {

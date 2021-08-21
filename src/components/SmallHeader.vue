@@ -1,7 +1,7 @@
 <template>
     <section class="small-admin-header bg-default">
 
-        <navbar :background_color="'transparent'" style="margin-bottom: 3rem"></navbar>
+        <navbar :sidebar="false" :background_color="'transparent'" style="margin-bottom: 3rem"></navbar>
 
         <div class="title text-center">
             <h3 class="fw-bold text-white">{{ title }}</h3>
@@ -59,6 +59,10 @@ export default {
         all_screens: {
             required: false,
             type: Object
+        },
+        sidebar: {
+            required: false,
+            type: Boolean
         }
     },
     components: {

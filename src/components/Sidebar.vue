@@ -4,7 +4,7 @@
             <h6 class="float-left mr-2 abbreviation bg-danger">P</h6>
             <span class="wide float-right mt-1" style="margin-left: 20px">
                 <a href="<?php echo base_url(); ?>home">
-                    A typical template
+                    Your Typical Dashboard
                 </a>
                 
                 <p class="text-muted">Your essentials</p>

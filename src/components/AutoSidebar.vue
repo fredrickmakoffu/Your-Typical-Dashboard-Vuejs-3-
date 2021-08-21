@@ -4,7 +4,7 @@
             <h6 class="float-left mr-2 abbreviation bg-danger">P</h6>
             <span class="wide float-right mt-1" style="margin-left: 20px">
                 <a href="<?php echo base_url(); ?>home">
-                    A typical template
+                    Your Typical Dashboard
                 </a>
                 
                 <p class="text-muted">Your essentials</p>
@@ -67,7 +67,6 @@ export default {
     props: ['page', 'sidebar_data'],
     methods: {
         expand(event) {
-
             document.querySelectorAll('.list-nav > .list-group-item').forEach(list => { 
                 if(list.querySelector('.list-name').textContent === event.querySelector('.list-name').textContent) {
                     if(list.querySelector('.list-nav-child').style.height === '0px' || list.querySelector('.list-nav-child').style.height === '') {
