@@ -7,9 +7,9 @@ This template is also built to be minimal too. Whatever Bootstrap 5 classes can 
 The UI design is also designed to be minimal, so that you can make the template anything you want it to be, as fast as possible. 
 
 <p align="center">
-  <a href="https://getstisla.com">
-    <img src="https://avatars2.githubusercontent.com/u/45754626?s=75&v=4" alt="Stisla logo" width="75" height="75">
-  </a>
+    <a href="https://ibb.co/RY9tMXk">
+        <img src="https://i.ibb.co/sb2cDTd/YTD.gif" alt="YTD" border="0">
+    </a>
 </p>
 
 ## Project setup
