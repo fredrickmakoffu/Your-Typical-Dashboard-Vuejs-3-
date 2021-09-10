@@ -7,8 +7,8 @@ This template is also built to be minimal too. Whatever Bootstrap 5 classes can 
 The UI design is also designed to be minimal, so that you can make the template anything you want it to be, as fast as possible. 
 
 <p align="center">
-    <a href="https://ibb.co/RY9tMXk">
-        <img src="https://i.ibb.co/sb2cDTd/YTD.gif" alt="YTD" border="0">
+    <a href="https://ibb.co/tCGKNhM">
+        <img src="https://i.ibb.co/7yfCTzJ/Screenshot-from-2021-09-10-11-38-28.png" alt="Screenshot-from-2021-09-10-11-38-28" border="0">
     </a>
 </p>
 
