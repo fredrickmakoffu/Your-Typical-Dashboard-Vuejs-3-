@@ -6,7 +6,7 @@ This template is also built to be minimal too. Whatever Bootstrap 5 classes can 
 
 The UI design is also designed to be minimal, so that you can make the template anything you want it to be, as fast as possible. 
 
-![image text](./src/assets/img/logo.png)
+![image text](src/assets/img/logo.png)
 
 ## Project setup
 ```
